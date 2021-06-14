@@ -58,10 +58,5 @@ stdenv.mkDerivation rec {
      })
     ];
 
-  shellHook = ''
-            alias pip="PIP_PREFIX='./_build/pip_packages' \pip"
-            export PYTHONPATH="./_build/pip_packages/lib/python3.8/site-packages:$PYTHONPATH"
-            unset SOURCE_DATE_EPOCH
-            pip install ipyleaflet
-            jupyter nbextension enable --py ipyleaflet
-  '';}
+
+}
