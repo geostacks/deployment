@@ -4,6 +4,9 @@
 echo $PYTHONPATH
 
 alias pip="PIP_PREFIX='$(pwd)/_build/pip_packages' \pip"
+
+echo "Hello"
+
 pip install ipyleaflet
 jupyter nbextension enable --py ipyleaflet
 
