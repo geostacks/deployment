@@ -67,5 +67,6 @@ stdenv.mkDerivation rec {
     shellHook = ''
             alias pip="PIP_PREFIX='$(pwd)/_build/pip_packages' \pip"
             export PYTHONPATH="$(pwd)/_build/pip_packages/lib/python3.8/site-packages:$PYTHONPATH"
-      '';
+            pip install ipyleaflet
+            jupyter nbextension enable --py ipyleaflet'';
 }

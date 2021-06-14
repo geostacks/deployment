@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#!nix-shell default.nix -i bash
+#!nix-shell take.nix -i bash
 
 echo $PYTHONPATH
 
