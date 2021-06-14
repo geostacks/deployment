@@ -3,10 +3,12 @@
 
 echo $PYTHONPATH
 
-alias pip="PIP_PREFIX='$(pwd)/_build/pip_packages' \pip"
+#alias pip="PIP_PREFIX='$(pwd)/_build/pip_packages' \pip"
+export PREFIX_PATH="$(pwd)/_build/pip_packages" 
 
 echo "Hello"
 
-pip install ipyleaflet
+pip install  ipyleaflet --prefix=$PREFIX_PATH
 jupyter nbextension enable --py ipyleaflet
+#pip install --install-option="--prefix=$PREFIX_PATH" ipyleaflet
 
