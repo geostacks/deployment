@@ -17,6 +17,8 @@ stdenv.mkDerivation rec {
         numpy
         scipy
         jupyterlab
+        traittypes
+        branca
         flake8
         matplotlib
         boto3
