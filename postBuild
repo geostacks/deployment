@@ -1,4 +1,7 @@
+#!/bin/bash
+
 echo "POST!!!!!!!!!!!!!"
+
 alias pip="PIP_PREFIX='./_build/pip_packages' \pip"
 export PYTHONPATH="./_build/pip_packages/lib/python3.8/site-packages:$PYTHONPATH"
 unset SOURCE_DATE_EPOCH

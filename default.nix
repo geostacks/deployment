@@ -58,5 +58,7 @@ stdenv.mkDerivation rec {
      })
     ];
 
-
+    shellHook = ''
+    export PATH="${pkgs.python38Packages.pip}/bin:${pkgs.python38Packages.jupyterlab}/bin:$PATH"
+'';
 }
