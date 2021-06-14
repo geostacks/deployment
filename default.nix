@@ -8,9 +8,13 @@
 with current;
 
 stdenv.mkDerivation rec {
+
   name = "env" ;
-  env = buildEnv { name = name; paths = buildInputs; };
-  buildInputs = [ git hdf4 gcc pybind11 wget libjpeg openjpeg 
+  builder = builtins.toFile "builder.sh" ''
+  source $stdenv/setup; ln-s $env $out
+  '';
+
+  buildInputs = [ git hdf4 gcc wget libjpeg openjpeg python38
     (python38.buildEnv.override {
       ignoreCollisions = true;
       extraLibs = with python38Packages; [
@@ -40,7 +44,6 @@ stdenv.mkDerivation rec {
 	    shapely
 	    pyproj
         lib
-        env
 	    numba
         flask
         joblib
@@ -62,6 +65,7 @@ stdenv.mkDerivation rec {
     ];
 
     shellHook = ''
+        alias pip="PIP_PREFIX='$(pwd)/_build/pip_packages' \pip"
         export PYTHONPATH="$(pwd)/_build/pip_packages/lib/python3.8/site-packages:$PYTHONPATH"
         unset SOURCE_DATE_EPOCH'';
 }

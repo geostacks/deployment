@@ -1,7 +1,7 @@
 #!/usr/bin/env nix-shell
 #!nix-shell default.nix -i bash
 
-echo "POST!!!!!!!!!!!!!"
+echo $PYTHONPATH
 
 /nix/store/lb91cfg2axk1vr14s80i9xj3rhn4q2qa-python3.8-pip-21.0.1/bin/pip install ipyleaflet --prefix=./_build/pip_packages
 jupyter nbextension enable --py ipyleaflet
