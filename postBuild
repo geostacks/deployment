@@ -1,14 +1,18 @@
 #!/usr/bin/env nix-shell
 #!nix-shell default.nix -i bash
 
+echo $JUPYTERPATH
 echo $PYTHONPATH
+echo $JUPYTER_PATH
 
 #alias pip="PIP_PREFIX='$(pwd)/_build/pip_packages' \pip"
 export PREFIX_PATH="$(pwd)/_build/pip_packages" 
+export PYTHONPATH="$(pwd)/_build/pip_packages/lib/python3.8/site-packages:$JUPYTER_PATH"
 
-echo "Hello"
 
 pip install  ipyleaflet --prefix=$PREFIX_PATH
-jupyter nbextension enable --py ipyleaflet
-#pip install --install-option="--prefix=$PREFIX_PATH" ipyleaflet
+
+jupyter nbextension install --py --symlink --user ipyleaflet
+
+jupyter nbextension enable --py --user ipyleaflet
 
