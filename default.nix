@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
   source $stdenv/setup; ln-s $env $out
   '';
 
-  buildInputs = [ git hdf4 gcc wget libjpeg openjpeg python38
+  buildInputs = [ git hdf4 gcc wget libjpeg openjpeg python38 nodejs
     (python38.buildEnv.override {
       ignoreCollisions = true;
       extraLibs = with python38Packages; [
@@ -68,8 +68,10 @@ stdenv.mkDerivation rec {
             alias pip="PIP_PREFIX='$(pwd)/_build/pip_packages' \pip"
             export PYTHONPATH="$(pwd)/_build/pip_packages/lib/python3.8/site-packages:$PYTHONPATH"
             export PREFIX_PATH="$(pwd)/_build/pip_packages"
+            export JUPYTERLAB_DIR="$(pwd)/jupyterlab"
             pip install  ipyleaflet --prefix=$PREFIX_PATH
             jupyter nbextension install --py --symlink --user ipyleaflet
             jupyter nbextension enable --py --user ipyleaflet
+            jupyter labextension install @jupyter-widgets/jupyterlab-manager jupyter-leaflet --app-dir=$JUPYTERLAB_DIR
       '';
 }
