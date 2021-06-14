@@ -5,4 +5,4 @@ echo "POST!!!!!!!!!!!!!"
 export PYTHONPATH="./_build/pip_packages/lib/python3.8/site-packages:$PYTHONPATH"
 unset SOURCE_DATE_EPOCH
 /nix/store/lb91cfg2axk1vr14s80i9xj3rhn4q2qa-python3.8-pip-21.0.1/bin/pip install ipyleaflet --prefix=./_build/pip_packages
-jupyter nbextension enable --py ipyleaflet
+/nix/store/xd7j2rs5j7pxz00lg0b6a8mfq9l1ywa3-python3-3.8.9-env/bin/jupyter nbextension enable --py ipyleaflet

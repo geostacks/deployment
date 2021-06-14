@@ -29,6 +29,9 @@ stdenv.mkDerivation rec {
         cython
         pandas
         wheel
+        setuptools
+        pyrsistent
+        nbconvert
         seaborn
         gdal
         h5py
