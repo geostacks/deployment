@@ -59,6 +59,6 @@ stdenv.mkDerivation rec {
     ];
 
     shellHook = ''
-    export PATH="${pkgs.python38Packages.pip}/bin:${pkgs.python38Packages.jupyterlab}/bin:$PATH"
-'';
+        export PYTHONPATH="$(pwd)/_build/pip_packages/lib/python3.8/site-packages:$PYTHONPATH"
+        unset SOURCE_DATE_EPOCH'';
 }
